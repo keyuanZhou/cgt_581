@@ -1,124 +1,19 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>C4E Visualization</title>
-<meta charset="utf-8">
-<meta name="author" content="Keyuan Zhou">
-<style>
-div.pos_left{
-    font: 350 15px "Helvetica Neue", Helvetica, Arial, sans-serif;
-    position:fixed;
-    left:1000px;
-    top: 250px;
-
-}
-.link {
-    stroke: #cccccc;
-    stroke-opacity: 0;
-/*    fill: none;*/
-    fill: #5d5d5d;
-    fill-opacity: 0.05;
-    pointer-events: none;
-}
-
-.link1 {
-    /*fill: #da4c31;*/
-    fill: #3E8E64;
-    fill-opacity: 0.15;
-    }
-
-.link2 {
-    /*fill: #287a4d;*/
-    fill: #045C2E;
-    fill-opacity: 0.15;
-}
-
-.link3 {
-    /*fill: #315ea2;*/
-    fill: #04345D;
-    fill-opacity: 0.15;
-}
-
-.node_hover {
-    opacity: 0.25;
-}
-
-.text_hover {
-    opacity: 0.25;
-}
-
-text {
-    font: 350 15px "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-.text1, .text2, .text3 {
-    font-size: 18px;
-    font-weight: 700;
-    }
-
-.line1 {
-    stroke: #3E8E64; /* PI - red */
-    stroke-width: 2;
-    stroke-opacity: 1;
-    }
-
-.line2 {
-    stroke: #045C2E; /* Action - green */
-    stroke-width: 2;
-    stroke-opacity: 1;
-}
-
-.line3 {
-    stroke: #04345D; /* Sample - blue */
-    stroke-width: 2;
-    stroke-opacity: 1;
-}
-
-
-
-</style>
-</head>
-
-<body>
-
-<div class = "pos_left">
-<p style="font-size: 25px" id = "title">Title</p>
-<p style="font-size: 20px">Introduction</p>
-<p style = "width: 600px" id = "content"></p>
-<p style="font-size: 20px">Outcome</p>
-<p id = "outcome1"></p>
-<p id = "outcome2"></p>
-<p id = "outcome3"></p>
-<p id = "outcome4"></p>
-<p style="font-size: 20px">Link</p>
-<a href="https://va.tech.purdue.edu/c4e/" id="link"></a>
-
-
-</div>
-
-
-<script src="https://d3js.org/d3.v4.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script>
-
 var diameter = 960,
     radius = diameter / 2,
-    innerRadius = radius - 180;
+    innerRadius = radius - 180,
+    extra_width = 200;
 var Hoverednumber = 0;
 var Judge = false;
-var div = document.getElementById("title");
-var div1 = document.getElementById("content");
-var div2 = document.getElementById("outcome1");
-var div3 = document.getElementById("outcome2");
-var div4 = document.getElementById("outcome3");
-var div5 = document.getElementById("outcome4");
-var div6 = document.getElementById("link");
+
+var div1 = document.getElementById("text1");
+var div2 = document.getElementById("text2");
+
 
 var svg = d3.select("body").append("svg")
-            .attr("width", diameter)
-            .attr("height", diameter)
+            .attr("width", diameter + extra_width)
+            .attr("height", diameter + extra_width)
             .append("g")
-            .attr("transform", "translate(" + radius + "," + radius + ")");
+            .attr("transform", "translate(" + (radius + extra_width/2) + "," + (radius + extra_width/2) + ")");
 
 var line = d3.radialLine()
              .curve(d3.curveBundle.beta(0.85))
@@ -132,25 +27,28 @@ var node = svg.append("g");
 
 var color11 = "#045C2E"; // PI - green
     color1 = "#3E8E64";
-    // color22 = "#04045C"; // Action - purple
-    // color2 = "#52528C";
-    color22 = "#7F2628"; // Action - purple
+
+    color22 = "#7F2628"; // Action - red
     color2 = "#BF272E";
+
+
     color33 = "#043866"; // Sample - blue
     color3 = "#387DB4";
 
 
-d3.json("data/data6.json", function(error, json){
+d3.json("data/data1.json", function(error, json){
 
     var data_count = json.length;
     let circle_radius = innerRadius;
     let text_radius = innerRadius;
-    let position = -11;
+    let position = -13;
+    let adjust_node_angle = 0.0045;
+    let adjust_text_angle = 2;
 
     node = node.selectAll("circle")
                .data(json)
                .enter().append("circle")
-               .attr("transform", function(i, d) { let angle = (d + position) / data_count * 2 * Math.PI;
+               .attr("transform", function(i, d) { let angle = ((d + position) / data_count + adjust_node_angle) * 2 * Math.PI;
                                                    return "translate(" + circle_radius * Math.cos(angle) + "," + circle_radius * Math.sin(angle) + ")"; })
                .attr("cx", 0)
                .attr("cy", 0)
@@ -168,8 +66,8 @@ d3.json("data/data6.json", function(error, json){
                .enter().append("text")
                .text(function(i, d) { return i.name; })
                .attr("transform", function(i, d) { let angle = (d + position) / data_count * 360;
-                                                   if (90 < angle && angle <= 270) { return "rotate(" + angle + ",0,0)translate(320, -6)rotate(180,0,0)"; }
-                                                   else { return "rotate(" + angle + ",0,0)translate(320, 6)"; }
+                                                   if (90 < angle && angle <= 270) { return "rotate(" + (angle + adjust_text_angle) + ",0,0)translate(320, -6)rotate(180,0,0)"; }
+                                                   else { return "rotate(" + (angle + adjust_text_angle) + ",0,0)translate(320, 6)"; }
                                                     })
                .attr("text-anchor", function(i, d) { let angle = (d + position) / data_count * 360;
                                                      if (90 < angle && angle <= 270) { return "end"; }
@@ -190,18 +88,11 @@ d3.json("data/data6.json", function(error, json){
 
 
     function mouseovered(d) {
-     //    text.
 
-        // text.classed("text1", function(l){ if (l === d && d.size === 1) return true; })
-        //  .classed("text2", function(l){ if (l === d && d.size === 2) return true; })
-        //  .classed("text3", function(l){ if (l === d && d.size === 3) return true; });
 
         Hoverednumber = d.number;
         // console.log(Hoverednumber);
 
-
-        // d3.selectAll(".node").classed("node_hover", true);
-        // d3.selectAll(".font").classed("text_hover", true);
         d3.select(".t"+d.number)
           .transition()
           .style("font-size", "18px")
@@ -242,19 +133,10 @@ d3.json("data/data6.json", function(error, json){
               .style("fill-opacity", 0.15);
         } else {}
 
-        // d3.select(".n"+d.number).classed("node_hover", false);
-        // d3.select(".t"+d.number).classed("text_hover", false);
-        // console.log(".n"+d.number);
-
     }
 
     function mouseouted(d) {
         Hoverednumber = d.number;
-
-        // text.classed("text", false)
-        //  .classed("text1", false)
-        //  .classed("text2", false)
-        //  .classed("text3", false);
 
         d3.selectAll(".p"+d.number)
           .transition()
@@ -282,36 +164,25 @@ d3.json("data/data6.json", function(error, json){
               .style("fill-opacity", 0.075);
         } else {}
 
-
-        // d3.selectAll(".node").classed("node_hover", false);
-        // d3.selectAll(".font").classed("text_hover", false);
-
-
         Hoverednumber = 0;
     }
 
     function mousedown(d) {
-        text.classed("text4", function(l){if (l === d && l.size !== 10) return true});
-
-      div.textContent = d.title;
-      div1.textContent = d.content;
-      div2.textContent = d.outcome1;
-      div3.textContent = d.outcome2;
-      div4.textContent = d.outcome3;
-      div5.textContent = d.outcome4;
-      div6.textContent = d.link;
+        // text.classed("text4", function(l){if (l === d && l.size !== 10) return true});
+      div1.textContent = d.name;
+      div2.textContent = d.pi;
     }
 
 
 });
 
 
-d3.json("data/data4.json", function(error, json){
-    var data_count = 48;
+d3.json("data/data2.json", function(error, json){
+    var data_count = 55;
     var radialLineGenerator = d3.radialLine()
-                            .curve(d3.curveBundle.beta(0.85));
+                            .curve(d3.curveBundle.beta(0.8));
 
-    var line_radius = innerRadius - 10;
+    var line_radius = innerRadius - 7.5;
 
 
     json.forEach(function(d){
@@ -319,27 +190,27 @@ d3.json("data/data4.json", function(error, json){
         // console.log(d);
 
         var points1 = [
-        [d.PrincipalInvestigator / data_count * 2 * Math.PI, line_radius],[0,0],[d.Analysis / data_count * 2 * Math.PI, line_radius],
+        [d.project / data_count * 2 * Math.PI, line_radius],[0,0],[d.action / data_count * 2 * Math.PI, line_radius],
         ];
         var radialLine1 = radialLineGenerator(points1);
 
 
         var points2 = [
-        [d.Analysis / data_count * 2 * Math.PI, line_radius],[0,0],[d.Sample / data_count * 2 * Math.PI, line_radius],
+        [d.action / data_count * 2 * Math.PI, line_radius],[0,0],[d.sample / data_count * 2 * Math.PI, line_radius],
         ];
 
         var radialLine2 = radialLineGenerator(points2);
 
 
         var points3 = [
-        [d.Sample / data_count * 2 * Math.PI, line_radius],[0,0],[d.PrincipalInvestigator / data_count * 2 * Math.PI, line_radius],
+        [d.sample / data_count * 2 * Math.PI, line_radius],[0,0],[d.project / data_count * 2 * Math.PI, line_radius],
         ];
 
         var radialLine3 = radialLineGenerator(points3);
 
-        var pt1 = "p" + d.PrincipalInvestigator.toString();
-        var pt2 = "p" + d.Analysis.toString();
-        var pt3 = "p" + d.Sample.toString();
+        var pt1 = "p" + d.project.toString();
+        var pt2 = "p" + d.action.toString();
+        var pt3 = "p" + d.sample.toString();
 
         d3.select(".path")
           .append("path")
@@ -351,11 +222,3 @@ d3.json("data/data4.json", function(error, json){
     });
 
 });
-
-
-
-
-</script>
-
-</body>
-</html>

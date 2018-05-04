@@ -1,0 +1,332 @@
+[
+  {
+    "name": "",
+    "size": 10,
+    "number": 1,
+    "pi": ""
+  },
+  {
+    "name": "",
+    "size": 10,
+    "number": 2,
+    "pi": ""
+  },
+  {
+    "name": "Air Pollutant Monitoring",
+    "size": 1,
+    "number": 3,
+    "pi": "Michalski and Welp"
+  },
+  {
+    "name": "Clean Water Infrastructure",
+    "size": 1,
+    "number": 4,
+    "pi": "Elwakil"
+  },
+  {
+    "name": "Crop Physiological Geonomics",
+    "size": 1,
+    "number": 5,
+    "pi": "Mohammadi and Cui"
+  },
+  {
+    "name": "Environmental Robotics",
+    "size": 1,
+    "number": 6,
+    "pi": "Min"
+  },
+  {
+    "name": "Equitable Resource Use",
+    "size": 1,
+    "number": 7,
+    "pi": "Ma and Zanotti"
+  },
+  {
+    "name": "Food Nutrition and Processing",
+    "size": 1,
+    "number": 8,
+    "pi": "Hamaker"
+  },
+  {
+    "name": "Food Safety - Pathogens",
+    "size": 1,
+    "number": 9,
+    "pi": "Oliver and Deering"
+  },
+  {
+    "name": "Food Safety - Pesticides",
+    "size": 1,
+    "number": 10,
+    "pi": "Deering and Oliver"
+  },
+  {
+    "name": "Food Security Center-assessment",
+    "size": 1,
+    "number": 11,
+    "pi": "Gebisa"
+  },
+  {
+    "name": "Pollutant Sensors",
+    "size": 1,
+    "number": 12,
+    "pi": "Panigrahi"
+  },
+  {
+    "name": "Postharvest Management",
+    "size": 1,
+    "number": 13,
+    "pi": "Baribusta"
+  },
+  {
+    "name": "Riverine Water Quality",
+    "size": 1,
+    "number": 14,
+    "pi": "Jafvert and Filley"
+  },
+  {
+    "name": "Soil Health and Visualization",
+    "size": 1,
+    "number": 15,
+    "pi": "Filley"
+  },
+  {
+    "name": "Soil to Plant Metal Movement",
+    "size": 1,
+    "number": 16,
+    "pi": "McMillan"
+  },
+  {
+    "name": "Teaching Sustainability",
+    "size": 1,
+    "number": 17,
+    "pi": "Sheffield"
+  },
+  {
+    "name": "Tracing Glacial Water",
+    "size": 1,
+    "number": 18,
+    "pi": "Frisbee and Welp"
+  },
+  {
+    "name": "Viticulture Center-assessment",
+    "size": 1,
+    "number": 19,
+    "pi": "Ebert"
+  },
+  {
+    "name": "Watershed Management",
+    "size": 1,
+    "number": 20,
+    "pi": "Bowling"
+  },
+  {
+    "name": "",
+    "size": 10,
+    "number": 21,
+    "pi": ""
+  },
+  {
+    "name": "",
+    "size": 10,
+    "number": 22,
+    "pi": ""
+  },
+  {
+    "name": "Breeding",
+    "size": 2,
+    "number": 23,
+    "pi": ""
+  },
+  {
+    "name": "Feasability and Need Assessment",
+    "size": 2,
+    "number": 24,
+    "pi": ""
+  },
+  {
+    "name": "Geochemistry",
+    "size": 2,
+    "number": 25,
+    "pi": ""
+  },
+  {
+    "name": "Metal Pollutants",
+    "size": 2,
+    "number": 26,
+    "pi": ""
+  },
+  {
+    "name": "Microbial Molecular Genetics",
+    "size": 2,
+    "number": 27,
+    "pi": ""
+  },
+  {
+    "name": "Microbiology",
+    "size": 2,
+    "number": 28,
+    "pi": ""
+  },
+  {
+    "name": "Modeliing: Resource Management",
+    "size": 2,
+    "number": 29,
+    "pi": ""
+  },
+  {
+    "name": "Modelling: Land Use Management",
+    "size": 2,
+    "number": 30,
+    "pi": ""
+  },
+  {
+    "name": "Modelling: Risk Assessment",
+    "size": 2,
+    "number": 31,
+    "pi": ""
+  },
+  {
+    "name": "Molecular Genetics",
+    "size": 2,
+    "number": 32,
+    "pi": ""
+  },
+  {
+    "name": "New Course Development",
+    "size": 2,
+    "number": 33,
+    "pi": ""
+  },
+  {
+    "name": "Nutrition",
+    "size": 2,
+    "number": 34,
+    "pi": ""
+  },
+  {
+    "name": "Pathogens",
+    "size": 2,
+    "number": 35,
+    "pi": ""
+  },
+  {
+    "name": "Pesticides",
+    "size": 2,
+    "number": 36,
+    "pi": ""
+  },
+  {
+    "name": "Physiology",
+    "size": 2,
+    "number": 37,
+    "pi": ""
+  },
+  {
+    "name": "Questionaires/Surveys",
+    "size": 2,
+    "number": 38,
+    "pi": ""
+  },
+  {
+    "name": "Radio Isotopes",
+    "size": 2,
+    "number": 39,
+    "pi": ""
+  },
+  {
+    "name": "Regional Geospatial Patterns",
+    "size": 2,
+    "number": 40,
+    "pi": ""
+  },
+  {
+    "name": "Soil Health Assessment",
+    "size": 2,
+    "number": 41,
+    "pi": ""
+  },
+  {
+    "name": "Soil Organic Matter Stability",
+    "size": 2,
+    "number": 42,
+    "pi": ""
+  },
+  {
+    "name": "Stable Isotopes",
+    "size": 2,
+    "number": 43,
+    "pi": ""
+  },
+  {
+    "name": "Technical Training",
+    "size": 2,
+    "number": 44,
+    "pi": ""
+  },
+  {
+    "name": "",
+    "size": 10,
+    "number": 45,
+    "pi": ""
+  },
+  {
+    "name": "",
+    "size": 10,
+    "number": 46,
+    "pi": ""
+  },
+  {
+    "name": "Atmospheric Particulates",
+    "size": 3,
+    "number": 47,
+    "pi": ""
+  },
+  {
+    "name": "Crops",
+    "size": 3,
+    "number": 48,
+    "pi": ""
+  },
+  {
+    "name": "Data: Existing Geospatial Data",
+    "size": 3,
+    "number": 49,
+    "pi": ""
+  },
+  {
+    "name": "Data: Water Production, Use, and Quality",
+    "size": 3,
+    "number": 50,
+    "pi": ""
+  },
+  {
+    "name": "Processed Food",
+    "size": 3,
+    "number": 51,
+    "pi": ""
+  },
+  {
+    "name": "Regional Stakeholders",
+    "size": 3,
+    "number": 52,
+    "pi": ""
+  },
+  {
+    "name": "Sediment",
+    "size": 3,
+    "number": 53,
+    "pi": ""
+  },
+  {
+    "name": "Soil",
+    "size": 3,
+    "number": 54,
+    "pi": ""
+  },
+  {
+    "name": "Water",
+    "size": 3,
+    "number": 55,
+    "pi": ""
+  }
+]
